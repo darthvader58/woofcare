@@ -24,7 +24,7 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 155, 191, 23),
+      backgroundColor: const Color.fromARGB(234, 238, 183, 132),
       body: const Center(
         child: SizedBox(
           width: 400,
@@ -53,13 +53,15 @@ class _SignUpFormState extends State<SignUpForm> {
   final _passwordTextController = TextEditingController();
   final _passwordConfirmTextController = TextEditingController();
   final _passwordsMatchTextController = TextEditingController();
-  final List<String> roles = <String>[
+  var roles = [
+    'Role',
     'Animal Lover',
     'NGO Representative',
+    'Looking to Adopt',
     'Dog Feeder',
-    'Veterinarian'
+    'Veterinarian',
   ];
-  String dropdownvalue = "Role";
+  String dropdownvalue = 'Role';
   @override
 
   // Set the state of the two password fields.
@@ -130,9 +132,11 @@ class _SignUpFormState extends State<SignUpForm> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          LinearProgressIndicator(value: _formProgress),
-          Text('Sign up for WoofCare',
-              style: Theme.of(context).textTheme.headlineMedium),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text('Create Your Account',
+                style: Theme.of(context).textTheme.headlineMedium),
+          ),
 
           // First name text entry.
           Padding(
@@ -184,20 +188,25 @@ class _SignUpFormState extends State<SignUpForm> {
 
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: DropdownButton(
-              value: "Role",
-              icon: const Icon(Icons.keyboard_arrow_down),
-              items: roles.map((String items) {
-                return DropdownMenuItem(
-                  value: items,
-                  child: Text(items),
-                );
-              }).toList(),
-              onChanged: (String? newValue) {
-                setState(() {
-                  dropdownvalue = newValue!;
-                });
-              },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                DropdownButton(
+                  value: dropdownvalue,
+                  icon: const Icon(Icons.keyboard_arrow_down),
+                  items: roles.map((String roles) {
+                    return DropdownMenuItem(
+                      value: roles,
+                      child: Text(roles),
+                    );
+                  }).toList(),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      dropdownvalue = newValue!;
+                    });
+                  },
+                ),
+              ],
             ),
           ),
 
