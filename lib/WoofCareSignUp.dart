@@ -24,7 +24,7 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: const Color.fromARGB(255, 155, 191, 23),
       body: const Center(
         child: SizedBox(
           width: 400,
@@ -53,7 +53,13 @@ class _SignUpFormState extends State<SignUpForm> {
   final _passwordTextController = TextEditingController();
   final _passwordConfirmTextController = TextEditingController();
   final _passwordsMatchTextController = TextEditingController();
-
+  final List<String> roles = <String>[
+    'Animal Lover',
+    'NGO Representative',
+    'Dog Feeder',
+    'Veterinarian'
+  ];
+  String dropdownvalue = "Role";
   @override
 
   // Set the state of the two password fields.
@@ -173,6 +179,25 @@ class _SignUpFormState extends State<SignUpForm> {
             child: TextFormField(
               controller: _usernameTextController,
               decoration: const InputDecoration(hintText: 'Username'),
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: DropdownButton(
+              value: "Role",
+              icon: const Icon(Icons.keyboard_arrow_down),
+              items: roles.map((String items) {
+                return DropdownMenuItem(
+                  value: items,
+                  child: Text(items),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+                setState(() {
+                  dropdownvalue = newValue!;
+                });
+              },
             ),
           ),
 
