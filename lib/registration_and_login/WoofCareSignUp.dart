@@ -54,7 +54,7 @@ class _SignUpFormState extends State<SignUpForm> {
   final _lastNameTextController = TextEditingController();
   final _dateOfBirthTextController = TextEditingController();
   final _emailTextController = TextEditingController();
-  final _usernameTextController = TextEditingController();
+  //final _usernameTextController = TextEditingController();
   final _passwordTextController = TextEditingController();
   final _passwordConfirmTextController = TextEditingController();
   final _passwordsMatchTextController = TextEditingController();
@@ -87,9 +87,7 @@ class _SignUpFormState extends State<SignUpForm> {
     final controllers = [
       _firstNameTextController,
       _lastNameTextController,
-      _usernameTextController,
       _emailTextController,
-      _dateOfBirthTextController,
       _passwordTextController,
       _passwordConfirmTextController
     ];
@@ -261,7 +259,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     : Colors.blue;
               }),
             ),
-            onPressed: (_formProgress == 7) && passwordChecker()
+            onPressed: (_formProgress == 1) && passwordChecker()
                 ? createUserWithEmailAndPassword
                 : null,
             child: const Text('Sign up'),
