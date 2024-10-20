@@ -1,4 +1,4 @@
-# WoofCare
+WoofCare
 JUST For WEB SCRAPPER
 _________________________
 NGO Data Scraper
@@ -58,10 +58,3 @@ Sample CSV structure:
 | NGO Example 1   | 123 Street, Pune, India    | +91 9876543210   |
 | NGO Example 2   | 456 Road, Pune, India      | +91 8765432109   |
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to adjust the repository details and license type as per your preference!
